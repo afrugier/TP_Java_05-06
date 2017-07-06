@@ -61,7 +61,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 			Pizza pizza = new Pizza(newCodePizza, newNomPizza, newPrixPizza);
 
 			try {
-				dao.updatePizza(codePizza, pizza);
+				dao.updatePizza(codePizza, pizza); 
 			} catch (UpdatePizzaException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
