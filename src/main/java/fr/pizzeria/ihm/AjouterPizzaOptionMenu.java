@@ -3,7 +3,7 @@ package fr.pizzeria.ihm;
 import java.util.Locale;
 import java.util.Scanner;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.model.Pizza;
 
 public class AjouterPizzaOptionMenu extends OptionMenu {
@@ -16,9 +16,8 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 	}
 
 	@Override
-	public boolean execute() {
+	public boolean execute(IPizzaDao dao) {
 		System.out.println("Veuillez saisir le code");
-		
 		String codePizza = questionAjout.next();
 
 		System.out.println("Veuillez saisir le nom (sans espace)");
@@ -27,11 +26,12 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 		System.out.println("Veuillez saisir le prix");
 		double prixPizza = questionAjout.nextDouble();
 
-		for (int i = 0; i < PizzaDao.listePizza.length; i++) {
+		for (int i = 0; i < dao.findAllPizzas().length; i++) {
 
-			if (PizzaDao.listePizza[i] == null) {
+			if (dao.findAllPizzas()[i] == null) {
 
-				PizzaDao.listePizza[i] = new Pizza(i, codePizza, nomPizza, prixPizza);
+				Pizza pizza = new Pizza(i, codePizza, nomPizza, prixPizza);
+				dao.saveNewPizza(pizza);
 
 				System.out.println("Pizza Ajouté !");
 				System.out.println("");

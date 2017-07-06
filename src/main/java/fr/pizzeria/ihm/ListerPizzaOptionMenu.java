@@ -1,10 +1,9 @@
 package fr.pizzeria.ihm;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.IPizzaDao;
 
 /**
- * @author pc
- * Fait la liste des pizzas situer dans le tableau listePizza
+ * @author pc Fait la liste des pizzas situer dans le tableau listePizza
  *
  */
 public class ListerPizzaOptionMenu extends OptionMenu {
@@ -15,16 +14,16 @@ public class ListerPizzaOptionMenu extends OptionMenu {
 	}
 
 	@Override
-	public boolean execute() {
-		for (int i = 0; i < PizzaDao.listePizza.length; i++) {
+	public boolean execute(IPizzaDao dao) {
+		for (int i = 0; i < dao.findAllPizzas().length; i++) {
 
-			if (PizzaDao.listePizza[i] != null) {
+			if (dao.findAllPizzas()[i] != null) {
 
 				// for (int j = 0; j < listePizza[i].length; j++) {
 				// System.out.print(listePizza[i][j] + " ");
 				// }
-				System.out.print(PizzaDao.listePizza[i].getCode() + " -> " + PizzaDao.listePizza[i].getNom() + " ("
-						+ PizzaDao.listePizza[i].getPrix() + ") ");
+				System.out.print(dao.findAllPizzas()[i].getCode() + " -> " + dao.findAllPizzas()[i].getNom() + " ("
+						+ dao.findAllPizzas()[i].getPrix() + ") ");
 
 				System.out.println("");
 			}
