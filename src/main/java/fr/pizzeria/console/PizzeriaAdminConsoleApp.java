@@ -1,6 +1,6 @@
 package fr.pizzeria.console;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.PizzaDaoMemoire;
 import fr.pizzeria.ihm.Menu;
 
 /**
@@ -13,8 +13,6 @@ public class PizzeriaAdminConsoleApp {
 	 * 
 	 */
 	public static void main(String[] args) {
-		
-		PizzaDao.init();
 		
 		Menu menu = new Menu();
 		menu.manage();

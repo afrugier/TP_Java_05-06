@@ -23,14 +23,8 @@ public class SupprimerPizzaOptionMenu extends OptionMenu {
 		String codePizza = questionAjout.next();
 		if (!codePizza.equals("99")) {
 
-			for (int i = 0; i < dao.findAllPizzas().length; i++) {
-				if (codePizza.equals(dao.findAllPizzas()[i].getCode())) {
-					dao.findAllPizzas()[i] = null;
-					System.out.println("Pizza Supprimée !");
-					break;
-				}
-			}
-
+			dao.deletePizza(codePizza);
+			System.out.println("Pizza Supprimée !");
 			System.out.println("");
 
 		}

@@ -2,7 +2,7 @@ package fr.pizzeria.dao;
 
 import fr.pizzeria.model.Pizza;
 
-public class PizzaDaoMemoire implements IPizzaDao{
+public class PizzaDaoMemoire implements IPizzaDao {
 
 	public Pizza[] listePizza = new Pizza[50];
 
@@ -23,34 +23,42 @@ public class PizzaDaoMemoire implements IPizzaDao{
 	}
 
 	public boolean saveNewPizza(Pizza pizza) {
-		
-		for (int i = 0; i < findAllPizzas().length; i++) {
 
-			if (findAllPizzas()[i] == null) {
+		for (int i = 0; i < listePizza.length; i++) {
 
-				findAllPizzas()[i] = new Pizza(i, pizza.getCode(), pizza.getNom(), pizza.getPrix());
+			if (listePizza[i] == null) {
+
+				listePizza[i] = new Pizza(i, pizza.getCode(), pizza.getNom(), pizza.getPrix());
 				break;
 			}
 		}
-		
+
 		return false;
 	}
 
 	public boolean updatePizza(String codePizza, Pizza pizza) {
-		
-		for (int i = 0; i < findAllPizzas().length; i++) {
-			if (codePizza.equals(findAllPizzas()[i].getCode())) {
-				findAllPizzas()[i].setCode(pizza.getCode());
-				findAllPizzas()[i].setNom(pizza.getNom());
-				findAllPizzas()[i].setPrix(pizza.getPrix());
+
+		for (int i = 0; i < listePizza.length; i++) {
+			if (codePizza.equals(listePizza[i].getCode())) {
+				listePizza[i].setCode(pizza.getCode());
+				listePizza[i].setNom(pizza.getNom());
+				listePizza[i].setPrix(pizza.getPrix());
 				break;
 			}
 		}
-		
+
 		return false;
 	}
 
 	public boolean deletePizza(String codePizza) {
+		
+		for (int i = 0; i < listePizza.length; i++) {
+			if (codePizza.equals(listePizza[i].getCode())) {
+				listePizza[i] = null;
+				break;
+			}
+		}
+		
 		return false;
 	}
 
