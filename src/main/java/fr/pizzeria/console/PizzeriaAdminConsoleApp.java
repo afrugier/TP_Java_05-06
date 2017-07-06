@@ -39,8 +39,8 @@ public class PizzeriaAdminConsoleApp {
 	/**
 	 * @param args
 	 * 
-	 *  Affiche le menu de la pizzeria 
-	 *  Gére les different choix de menu
+	 *            Affiche le menu de la pizzeria Gére les different choix de
+	 *            menu
 	 * 
 	 */
 	public static void main(String[] args) {
@@ -48,9 +48,9 @@ public class PizzeriaAdminConsoleApp {
 
 		int choixPizza = 0;
 		do {
-
+			// Titre
 			System.out.println("***** Pizzeria Administration *****");
-
+			// Options (ici 5 options)
 			System.out.println("1. Lister les pizzas");
 			System.out.println("2. Ajouter une nouvelle pizza");
 			System.out.println("3. Mettre à jour une pizza");
@@ -62,7 +62,9 @@ public class PizzeriaAdminConsoleApp {
 
 			switch (choixPizza) {
 			case 1:
+				// Libellé
 				System.out.println("Liste des pizzas");
+				// Exécution
 				listerLesPizza();
 				break;
 			case 2:
@@ -97,7 +99,8 @@ public class PizzeriaAdminConsoleApp {
 				// for (int j = 0; j < listePizza[i].length; j++) {
 				// System.out.print(listePizza[i][j] + " ");
 				// }
-				System.out.print(listePizza[i].getCode() + " -> " + listePizza[i].getNom() + " (" + listePizza[i].getPrix() + ") ");
+				System.out.print(listePizza[i].getCode() + " -> " + listePizza[i].getNom() + " ("
+						+ listePizza[i].getPrix() + ") ");
 
 				System.out.println("");
 			}
@@ -127,7 +130,7 @@ public class PizzeriaAdminConsoleApp {
 
 			if (listePizza[i] == null) {
 
-				listePizza[i] = new Pizza( i, codePizza, nomPizza, prixPizza );
+				listePizza[i] = new Pizza(i, codePizza, nomPizza, prixPizza);
 
 				System.out.println("Pizza Ajouté !");
 				System.out.println("");
