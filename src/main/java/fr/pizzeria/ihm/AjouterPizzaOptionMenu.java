@@ -9,7 +9,7 @@ import fr.pizzeria.model.Pizza;
 public class AjouterPizzaOptionMenu extends OptionMenu {
 
 	static Scanner questionAjout = new Scanner(System.in).useLocale(Locale.US);
-	
+
 	@Override
 	public String getLibelle() {
 		return "2. Ajouter une nouvelle pizza";
@@ -26,18 +26,12 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 		System.out.println("Veuillez saisir le prix");
 		double prixPizza = questionAjout.nextDouble();
 
-		for (int i = 0; i < dao.findAllPizzas().length; i++) {
+		Pizza pizza = new Pizza(codePizza, nomPizza, prixPizza);
+		dao.saveNewPizza(pizza);
 
-			if (dao.findAllPizzas()[i] == null) {
-
-				Pizza pizza = new Pizza(i, codePizza, nomPizza, prixPizza);
-				dao.saveNewPizza(pizza);
-
-				System.out.println("Pizza Ajouté !");
-				System.out.println("");
-				break;
-			}
-		}
+		System.out.println("Pizza Ajouté !");
+		System.out.println("");
+		
 		return false;
 	}
 

@@ -37,6 +37,16 @@ public class PizzaDaoMemoire implements IPizzaDao{
 	}
 
 	public boolean updatePizza(String codePizza, Pizza pizza) {
+		
+		for (int i = 0; i < findAllPizzas().length; i++) {
+			if (codePizza.equals(findAllPizzas()[i].getCode())) {
+				findAllPizzas()[i].setCode(pizza.getCode());
+				findAllPizzas()[i].setNom(pizza.getNom());
+				findAllPizzas()[i].setPrix(pizza.getPrix());
+				break;
+			}
+		}
+		
 		return false;
 	}
 

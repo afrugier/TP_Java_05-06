@@ -4,6 +4,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.IPizzaDao;
+import fr.pizzeria.model.Pizza;
 
 public class ModifierPizzaOptionMenu extends OptionMenu {
 
@@ -33,14 +34,9 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 			System.out.println("Veuillez saisir le nouveau prix");
 			double newPrixPizza = questionAjout.nextDouble();
 
-			for (int i = 0; i < dao.findAllPizzas().length; i++) {
-				if (codePizza.equals(dao.findAllPizzas()[i].getCode())) {
-					dao.findAllPizzas()[i].setCode(newCodePizza);
-					dao.findAllPizzas()[i].setNom(newNomPizza);
-					dao.findAllPizzas()[i].setPrix(newPrixPizza);
-					break;
-				}
-			}
+			Pizza pizza = new Pizza(newCodePizza,newNomPizza,newPrixPizza);
+			dao.updatePizza(codePizza, pizza);
+					
 			System.out.println("Pizza Modifiée !");
 			System.out.println("");
 		}
