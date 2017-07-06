@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDaoMemoire;
 
+/**
+ * @author pc
+ *
+ */
 public class Menu {
 
 	static OptionMenu[] optionMenu = new OptionMenu[]{ 
@@ -16,6 +20,9 @@ public class Menu {
 
 	static Scanner questionAjout = new Scanner(System.in).useLocale(Locale.US);
 
+	/**
+	 * execute le code en fonction du choix réaliser dans le menu
+	 */
 	public void manage() {
 		
 		PizzaDaoMemoire dao = new PizzaDaoMemoire();
@@ -53,6 +60,9 @@ public class Menu {
 		} while (choixPizza != 99);
 	}
 
+	/**
+	 * Affiche le menu
+	 */
 	public void afficher() {
 		// Titre
 		System.out.println("***** Pizzeria Administration *****");

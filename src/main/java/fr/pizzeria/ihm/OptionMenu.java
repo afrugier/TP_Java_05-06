@@ -4,6 +4,9 @@ import fr.pizzeria.dao.IPizzaDao;
 
 public abstract class OptionMenu {
 	
+	/**
+	 * Définie les méthodes getLibelle, getTitle et execute
+	 */
 	public OptionMenu(){
 	}
 

@@ -2,10 +2,17 @@ package fr.pizzeria.dao;
 
 import fr.pizzeria.model.Pizza;
 
+/**
+ * @author pc
+ *
+ */
 public class PizzaDaoMemoire implements IPizzaDao {
 
 	public Pizza[] listePizza = new Pizza[50];
 
+	/**
+	 * initialise le tableau de pizza
+	 */
 	public PizzaDaoMemoire() {
 
 		listePizza[0] = new Pizza(0, "PEP", "Pépéroni", 12.50);
@@ -18,10 +25,16 @@ public class PizzaDaoMemoire implements IPizzaDao {
 		listePizza[7] = new Pizza(7, "IND", "L'indienne", 14.00);
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.pizzeria.dao.IPizzaDao#findAllPizzas()
+	 */
 	public Pizza[] findAllPizzas() {
 		return listePizza;
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.pizzeria.dao.IPizzaDao#saveNewPizza(fr.pizzeria.model.Pizza)
+	 */
 	public boolean saveNewPizza(Pizza pizza) {
 
 		for (int i = 0; i < listePizza.length; i++) {
@@ -36,6 +49,9 @@ public class PizzaDaoMemoire implements IPizzaDao {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.pizzeria.dao.IPizzaDao#updatePizza(java.lang.String, fr.pizzeria.model.Pizza)
+	 */
 	public boolean updatePizza(String codePizza, Pizza pizza) {
 
 		for (int i = 0; i < listePizza.length; i++) {
@@ -50,6 +66,9 @@ public class PizzaDaoMemoire implements IPizzaDao {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.pizzeria.dao.IPizzaDao#deletePizza(java.lang.String)
+	 */
 	public boolean deletePizza(String codePizza) {
 		
 		for (int i = 0; i < listePizza.length; i++) {

@@ -10,11 +10,17 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 
 	static Scanner questionAjout = new Scanner(System.in).useLocale(Locale.US);
 
+	/* (non-Javadoc)
+	 * @see fr.pizzeria.ihm.OptionMenu#getLibelle()
+	 */
 	@Override
 	public String getLibelle() {
 		return "3. Mettre à jour une pizza";
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.pizzeria.ihm.OptionMenu#execute(fr.pizzeria.dao.IPizzaDao)
+	 */
 	@Override
 	public boolean execute(IPizzaDao dao) {
 
@@ -43,6 +49,9 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.pizzeria.ihm.OptionMenu#getTitle()
+	 */
 	@Override
 	public String getTitle() {
 		return "Mise à jour d’une pizza";

@@ -8,11 +8,17 @@ import fr.pizzeria.dao.IPizzaDao;
  */
 public class ListerPizzaOptionMenu extends OptionMenu {
 
+	/* (non-Javadoc)
+	 * @see fr.pizzeria.ihm.OptionMenu#getLibelle()
+	 */
 	@Override
 	public String getLibelle() {
 		return "1. Lister les pizzas";
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.pizzeria.ihm.OptionMenu#execute(fr.pizzeria.dao.IPizzaDao)
+	 */
 	@Override
 	public boolean execute(IPizzaDao dao) {
 		for (int i = 0; i < dao.findAllPizzas().length; i++) {
@@ -34,6 +40,9 @@ public class ListerPizzaOptionMenu extends OptionMenu {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.pizzeria.ihm.OptionMenu#getTitle()
+	 */
 	@Override
 	public String getTitle() {
 		return "Liste des pizzas";
