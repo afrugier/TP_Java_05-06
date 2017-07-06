@@ -1,5 +1,6 @@
 package fr.pizzeria.dao;
 
+import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.model.Pizza;
 
 /**
@@ -65,6 +66,35 @@ public class PizzaDaoMemoire implements IPizzaDao {
 
 		return false;
 	}
+	
+	public void verifierExistence(String codePizza) throws SavePizzaException {
+		boolean trouve = false;
+		for (int i = 0; i < findAllPizzas().length; i++) {
+
+			if (findAllPizzas()[i]!=null && codePizza.equals(findAllPizzas()[i].getCode())) {
+				trouve = true;
+			}
+		}
+		if (!trouve){
+			throw new SavePizzaException("Le code "+codePizza+" n'existe pas");
+		}
+
+	}
+	
+	public void verifierAbsence(String codePizza) throws SavePizzaException {
+		boolean trouve = false;
+		for (int i = 0; i < findAllPizzas().length; i++) {
+
+			if (findAllPizzas()[i]!=null && codePizza.equals(findAllPizzas()[i].getCode())) {
+				trouve = true;
+			}
+		}
+		if (trouve){
+			throw new SavePizzaException("Le code "+codePizza+" existe déja");
+		}
+
+	}
+	
 
 	/* (non-Javadoc)
 	 * @see fr.pizzeria.dao.IPizzaDao#deletePizza(java.lang.String)
